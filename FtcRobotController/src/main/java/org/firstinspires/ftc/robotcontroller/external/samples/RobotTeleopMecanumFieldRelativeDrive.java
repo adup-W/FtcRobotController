@@ -142,7 +142,8 @@ public class RobotTeleopMecanumFieldRelativeDrive extends OpMode {
         double backLeftPower = forward - right + rotate;
 
         double maxPower = 1.0;
-        double maxSpeed = 1.0;  // make this slower for outreaches
+        double maxSpeed = 1.0;
+        double maxSpeedBack = 0.888;
 
         // This is needed to make sure we don't pass > 1.0 to any wheel
         // It allows us to keep all of the motors in proportion to what they should
@@ -157,7 +158,7 @@ public class RobotTeleopMecanumFieldRelativeDrive extends OpMode {
         // speed.
         frontLeftDrive.setPower(maxSpeed * (frontLeftPower / maxPower));
         frontRightDrive.setPower(maxSpeed * (frontRightPower / maxPower));
-        backLeftDrive.setPower(maxSpeed * (backLeftPower / maxPower));
-        backRightDrive.setPower(maxSpeed * (backRightPower / maxPower));
+        backLeftDrive.setPower(maxSpeedBack * (backLeftPower / maxPower));
+        backRightDrive.setPower(maxSpeedBack * (backRightPower / maxPower));
     }
 }
